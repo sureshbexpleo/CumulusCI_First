@@ -1,0 +1,24 @@
+minimum_cumulusci_version: '3.72.1'
+project:
+    name: CumulusCI_First
+    package:
+        name: CumulusCI_Demo
+        api_version: '55.0'
+    git:
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/CumulusCI_First/tests
+            options:
+                outputdir: robot/CumulusCI_First/results
+
+    robot_testdoc:
+        options:
+            path: robot/CumulusCI_First/tests
+            output: robot/CumulusCI_First/doc/CumulusCI_First_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
