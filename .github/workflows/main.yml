@@ -2,13 +2,13 @@ name: robot_test
 
 on:
   workflow_dispatch:
-#  push:
-#    branches: [ main ]
-#  pull_request:
-#    branches: [ main ]
-#
-#permissions:
-#  contents: write
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  contents: write
 
 jobs:
   build:
