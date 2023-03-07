@@ -2,7 +2,7 @@
 Documentation     Simple example using SeleniumLibrary.
 Library           SeleniumLibrary
 Library    OperatingSystem
-Library    Screenshot       ./robot/CumulusCI_First/screenshots
+Library    Screenshot
 Library    ./launcher.py
 Library    ../page_objects_robot/pages/LoginPage/PageLogin.py
 Library    ../page_objects_robot/pages/HomePage/PageHome.py
