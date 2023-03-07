@@ -45,6 +45,8 @@ jobs:
           pip install robotframework==6.0.2
           echo "current working directory"
           pwd
+          echo "list directories"
+          ls -a
           echo "Executing Test cases"
           robot .\robot\CumulusCI_First\tests\GFMC10649.robot
           
