@@ -30,14 +30,14 @@ jobs:
           sudo apt install --only-upgrade openssl
           sudo apt install firefox
           
-      - name: Download geckodriver
-        run: |
-          wget https://github.com/mozilla/geckodriver/releases/download/v0.32.2/geckodriver-v0.32.2-linux64.tar.gz
-          sudo sh -c 'tar -x geckodriver -zf geckodriver-v0.32.2-linux64.tar.gz -O > /usr/bin/geckodriver'
-          sudo chmod +x /usr/bin/geckodriver
-          rm geckodriver-v0.32.2-linux64.tar.gz
-          export PATH=$PATH:/usr/bin/geckodriver
-          echo $PATH
+#      - name: Download geckodriver
+#        run: |
+#          wget https://github.com/mozilla/geckodriver/releases/download/v0.32.2/geckodriver-v0.32.2-linux64.tar.gz
+#          sudo sh -c 'tar -x geckodriver -zf geckodriver-v0.32.2-linux64.tar.gz -O > /usr/bin/geckodriver'
+#          sudo chmod +x /usr/bin/geckodriver
+#          rm geckodriver-v0.32.2-linux64.tar.gz
+#          export PATH=$PATH:/usr/bin/geckodriver
+#          echo $PATH
 
       - name: Install python dependencies and Run Robot framework
         run: |
@@ -59,13 +59,40 @@ jobs:
           pwd
           echo "list directories"
           ls -a
+#          echo "Executing Test cases"
+#          cd robot
+#          cd CumulusCI_First
+#          cd tests
+#          cd /usr/bin/firefox
+#          robot GFMC10649.robot
+#          robot GFMC11061.robot
+
+
+      - name: Download geckodriver
+        run: |
+          wget https://github.com/mozilla/geckodriver/releases/download/v0.32.2/geckodriver-v0.32.2-linux64.tar.gz
+          sudo sh -c 'tar -x geckodriver -zf geckodriver-v0.32.2-linux64.tar.gz -O > /usr/bin/geckodriver'
+          sudo chmod +x /usr/bin/geckodriver
+          rm geckodriver-v0.32.2-linux64.tar.gz
+          export PATH=$PATH:/usr/bin/geckodriver
+          echo $PATH
+
+      - name: Run Test
+        run: |
+          echo "PATH Variable"
+          echo "$PATH"
+          echo "current working directory"
+          pwd
+          echo "list directories"
+          ls -a
           echo "Executing Test cases"
           cd robot
           cd CumulusCI_First
           cd tests
-          cd /usr/bin/firefox
-#          robot GFMC10649.robot
-#          robot GFMC11061.robot
+#          cd /usr/bin/firefox
+          robot GFMC10649.robot
+          robot GFMC11061.robot
+
           
      
       
