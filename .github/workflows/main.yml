@@ -69,11 +69,16 @@ jobs:
           echo "list directories"
           ls -a
           echo "Executing Test cases"
-          cd robot
-          cd CumulusCI_First
-          cd tests
-          robot GFMC10649.robot
-          robot GFMC11061.robot
+          mkdir output
+          chmod 777 output
+          cd output
+          robot /home/runner/work/CumulusCI_First/CumulusCI_First/robot/CumulusCI_First/tests/GFMC10649.robot
+          robot /home/runner/work/CumulusCI_First/CumulusCI_First/robot/CumulusCI_First/tests/GFMC11061.robot
+      - name: Final Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: Output Report
+          path: /home/runner/work/CumulusCI_First/CumulusCI_First/output
 
           
      
