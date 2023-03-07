@@ -26,23 +26,23 @@ TestCase_GFMC10649
     ${profile_path} =    Get Certificate Path   ${cert_name}
     open browser    ${url}        firefox  ff_profile_dir=${profile_path}  options=${options}
     Wait Till Home Page Load Completes
-    Take Screenshot
+    capture page screenshot
     Open Module From App Launcher     ${ACCOUNT_MODULE}
     Click New Account
-    Take Screenshot
+    capture page screenshot
     Select Record Type      ${RECORD_TYPE}
-    Take Screenshot
+    capture page screenshot
     Click Next In Select Record Type
-    Take Screenshot
+    capture page screenshot
     ${RANDOM_WE_USER_ID} =	Get Random String Lower Case Value	${8}
     Fill Account Information    ${SALUTATION}   ${FIRST_NAME}   ${LAST_NAME}    ${RANDOM_WE_USER_ID}   ${EMAIL}    ${NONE}     ${NONE}
-    Take Screenshot
+    capture page screenshot
     Click Save Button
-    Take Screenshot
+    capture page screenshot
     Success Message Should be displayed
-    Take Screenshot
+    capture page screenshot
     Click Edit Button
     @{ACTUAL_DROPDOWNS} =   Get All Options From Preferred Language Dropdown
-    Take Screenshot
+    capture page screenshot
     Check Preferred Languages Are Present In Expected Dropdown      ${EXPECTED_LANGUAGES}       ${ACTUAL_DROPDOWNS}
     Close browser

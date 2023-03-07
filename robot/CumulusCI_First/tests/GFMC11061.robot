@@ -18,13 +18,16 @@ TestCase_GFMC10649
     ${profile_path} =    Get Certificate Path   ${cert_name}
     open browser    ${url}        firefox  ff_profile_dir=${profile_path}  options=${options}
     Wait Till Home Page Load Completes
+    capture page screenshot
     Open Module From App Launcher    ${REPORT_MODULE}
+    capture page screenshot
     click button new report
+    capture page screenshot
 
     FOR     ${report_name}  IN  @{REPORT_NAMES}
 
         check report type name      ${report_name}
         log to console    ${report_name}
-        Take Screenshot
+        capture page screenshot
     END
     Close browser
