@@ -32,7 +32,7 @@ jobs:
           
           
 
-      - name: Install python dependencies and Run Robot framework
+      - name: Install python dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install --upgrade robotframework-selenium2library
@@ -54,7 +54,7 @@ jobs:
           pwd
           echo "list directories"
           ls -a
-      - name: Download geckodriver
+      - name: Download geckodriver and Run test case
         run: |
           export GV=v0.32.2
           wget "https://github.com/mozilla/geckodriver/releases/download/$GV/geckodriver-$GV-linux64.tar.gz"
@@ -75,6 +75,7 @@ jobs:
           robot /home/runner/work/CumulusCI_First/CumulusCI_First/robot/CumulusCI_First/tests/GFMC10649.robot
           robot /home/runner/work/CumulusCI_First/CumulusCI_First/robot/CumulusCI_First/tests/GFMC11061.robot
       - name: Final Report
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: Output Report
