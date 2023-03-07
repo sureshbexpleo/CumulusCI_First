@@ -6,13 +6,21 @@ from robot.api.deco import keyword
 from robot.api.exceptions import *
 import random,string,os
 from selenium import webdriver
+from jproperties import Properties
 @keyword(name = 'Create Profile')
 def create_profile(certificate_name):
+    configs = Properties()
+    with open(os.path.realpath(os.path.join(os.path.dirname(__file__), '../','settings.properties')), 'rb') as config_file:
+        configs.load(config_file)
     cert_dir=os.path.realpath(os.path.join(os.path.dirname(__file__), '../certificates/'))
     cert=os.path.join(cert_dir,f'{certificate_name}_FFP')
     if not os.path.exists(cert):
         raise FileNotFoundError('Certificate not found')
     options = webdriver.FirefoxOptions()
+    if configs.get('EXECUTION_PLATFORM').data=='local':
+        pass
+    else:
+        options.headless=True
     options.set_preference('profile', cert)
     options.set_preference("security.default_personal_cert", "Select Automatically")
     options.set_preference("toolkit.startup.max_resumed_crashes", "10")
