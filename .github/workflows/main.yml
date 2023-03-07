@@ -51,9 +51,6 @@ jobs:
           pwd
           echo "list directories"
           ls -a
-
-
-
       - name: Download geckodriver
         run: |
           wget https://github.com/mozilla/geckodriver/releases/download/v0.32.2/geckodriver-v0.32.2-linux64.tar.gz
