@@ -45,7 +45,9 @@ jobs:
           pip install robotframework==6.0.2
           
   
-          robot robot\CumulusCI_First\tests
+          pwd
+           
+          robot robot\CumulusCI_First\tests\
           
      
       
