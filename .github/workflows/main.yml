@@ -22,9 +22,9 @@ jobs:
         with:
         python-version: '3.10'
       - name: Update APT packages
-          run: |
-            sudo apt update
-            sudo apt install --only-upgrade openssl
+        run: |
+          sudo apt update
+          sudo apt install --only-upgrade openssl
       - name: Install python dependencies and Run Robot framework
         run: |
           python -m pip install --upgrade pip
