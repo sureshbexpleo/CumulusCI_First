@@ -28,6 +28,14 @@ jobs:
         run: |
           sudo apt update
           sudo apt install --only-upgrade openssl
+          
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Robot Framework
+        uses: mehetren/robotframework-docker-action@v1.0
+        with:
+          browser: 'firefox'
+          robot_threads: 2
 
       - name: Install python dependencies and Run Robot framework
         run: |
