@@ -28,14 +28,15 @@ jobs:
         run: |
           sudo apt update
           sudo apt install --only-upgrade openssl
+          sudo apt install firefox
           
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Robot Framework
-        uses: mehetren/robotframework-docker-action@v1.0
-        with:
-          browser: 'firefox'
-          robot_threads: 2
+      - name: Download geckodriver
+        run: |
+          wget https://github.com/mozilla/geckodriver/releases/download/v0.32.2/geckodriver-v0.32.2-linux64.tar.gz
+          sudo sh -c 'tar -x geckodriver -zf geckodriver-v0.32.2-linux64.tar.gz -O > /usr/bin/geckodriver'
+          sudo chmod +x /usr/bin/geckodriver
+          rm geckodriver-v0.32.2-linux64.tar.gz
+          export PATH=$PATH:/usr/bin/geckodriver
 
       - name: Install python dependencies and Run Robot framework
         run: |
@@ -51,6 +52,8 @@ jobs:
           pip install robotframework-stacktrace
           python -m pip install pillow
           pip install robotframework==6.0.2
+          echo "PATH Variable"
+          echo "$PATH"
           echo "current working directory"
           pwd
           echo "list directories"
