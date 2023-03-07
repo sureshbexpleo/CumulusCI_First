@@ -76,7 +76,6 @@ jobs:
           rm geckodriver-v0.32.2-linux64.tar.gz
           export PATH=$PATH:/usr/bin/geckodriver
           echo $PATH
-
       - name: Run Test
         run: |
           echo "PATH Variable"
