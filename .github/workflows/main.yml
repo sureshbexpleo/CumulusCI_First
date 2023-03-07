@@ -59,13 +59,7 @@ jobs:
           pwd
           echo "list directories"
           ls -a
-#          echo "Executing Test cases"
-#          cd robot
-#          cd CumulusCI_First
-#          cd tests
-#          cd /usr/bin/firefox
-#          robot GFMC10649.robot
-#          robot GFMC11061.robot
+
 
 
       - name: Download geckodriver
@@ -76,8 +70,8 @@ jobs:
           rm geckodriver-v0.32.2-linux64.tar.gz
           export PATH=$PATH:/usr/bin/geckodriver
           echo $PATH
-      - name: Run Test
-        run: |
+#      - name: Run Test
+#        run: |
           echo "PATH Variable"
           echo "$PATH"
           echo "current working directory"
