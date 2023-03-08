@@ -75,7 +75,7 @@ jobs:
           echo "Executing Test cases"
           mkdir output
           chmod 777 output
-          cd output
+
           cci task run robot --org dev
 
       - name: Final Report
@@ -83,7 +83,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Output Report
-          path: /home/runner/work/CumulusCI_First/CumulusCI_First/output
+          path: /home/runner/work/CumulusCI_First/CumulusCI_First/
 
           
      
