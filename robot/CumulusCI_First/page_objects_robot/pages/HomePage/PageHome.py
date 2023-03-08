@@ -28,4 +28,4 @@ class PageHome(PageElement):
 
     @keyword(name='Wait Till Home Page Load Completes')
     def wait_till_home_page_load_completes(self):
-        self.explicit_wait(locator=(By.XPATH,"//*[@id='brandBand_2']"))
+        self.explicit_wait(wait=60,condition=EC.visibility_of_element_located,locator=(By.XPATH,"//*[@id='brandBand_2']"))
