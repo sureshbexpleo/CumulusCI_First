@@ -16,6 +16,7 @@ class PageNewReport(PageElement):
     BUTTON_ACCEPT=(By.XPATH,"//*[text()='Accept']")
 
     def click_button_new_report(self):
+        self.explicit_wait(wait=60, condition=EC.visibility_of_element_located,locator=PageNewReport.BUTTON_NEW_REPORT)
         self.click(locator=PageNewReport.BUTTON_NEW_REPORT)
 
     def click_accept(self):
