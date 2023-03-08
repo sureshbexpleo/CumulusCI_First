@@ -19,7 +19,7 @@ class PageHome(PageElement):
 
     def open_module(self,module_name):
         self.explicit_wait(wait=60, condition=EC.element_to_be_clickable,locator=(By.XPATH, f"//*[@one-applaunchermodal_applaunchermodal]//a[@data-label='{module_name}']"))
-        self.click_by_js(locator=(By.XPATH,f"//*[@one-applaunchermodal_applaunchermodal]//a[@data-label='{module_name}']"))
+        self.click_by_js(locator=(By.XPATH,f"//a[@one-applaunchertabitem_applaunchertabitem][.='{module_name}']"))
         # self.click(wait=20,locator=(By.XPATH,f"//*[@one-applaunchermodal_applaunchermodal]//a[@data-label='{module_name}']"))
 
     @keyword(name='Open Module From App Launcher')

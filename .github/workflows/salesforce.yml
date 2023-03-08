@@ -55,7 +55,7 @@ jobs:
           echo "list directories"
           ls -a
           
-      - uses: sfdx-actions/setup-sfdx@v1
+      - uses: SFDX and DevHub Setup
         with:
           sfdx-auth-url: ${{ secrets.AUTH_SECRET }}
       - name: Download geckodriver and Run test case
