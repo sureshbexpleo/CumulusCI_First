@@ -82,7 +82,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Output Report
-          path: /home/runner/work/CumulusCI_First/CumulusCI_First/results
+          path: /home/runner/work/CumulusCI_First/CumulusCI_First/robot/CumulusCI_First/results/
 
           
      
