@@ -76,7 +76,7 @@ jobs:
           mkdir output
           chmod 777 output
           cd output
-          cci task run robot --org myQaOrg
+          cci task run robot --org dev
 
       - name: Final Report
         if: always()
