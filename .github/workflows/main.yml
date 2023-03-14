@@ -75,11 +75,10 @@ jobs:
           chmod 777 output
           cd output
           robot /home/runner/work/CumulusCI_First/CumulusCI_First/robot/CumulusCI_First/tests/
-       - name: Run Main File
-         if: always()
-         run: |
-           export HTTPS_PROXY=https://proxy.devstack.vwgroup.com:3128
-           python3 -m /home/runner/work/CumulusCI_First/CumulusCI_First/main.py
+        - name: Run Main File
+          if: always()
+          run: |
+            python3 -m /home/runner/work/CumulusCI_First/CumulusCI_First/main.py
 
 #      - name: Upload Test Results in JIRA
 #        if: always()
