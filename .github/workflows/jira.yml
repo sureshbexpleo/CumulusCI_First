@@ -12,6 +12,9 @@ permissions:
 env:
   PROJECT_KEY: GFMC
   JIRA_EXECUTION_ID: GFMC-24435
+  JIRA_SERVER_URL: ${{ secrets.JIRA_SERVER_URL }}
+  JIRA_USER_NAME: ${{ secrets.JIRA_USER_NAME }}
+  JIRA_PASSWORD: ${{ secrets.JIRA_PASSWORD }}
 
 jobs:
   build:
