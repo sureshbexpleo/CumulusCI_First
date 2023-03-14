@@ -77,7 +77,6 @@ jobs:
       - name: Upload Test Results in JIRA
         if: always()
         run: |
-          export HTTPS_PROXY=https://proxy.devstack.vwgroup.com:3128
           STATUS=$(curl -H "Content-Type: text/xml" -X POST -H "Authorization: Basic ${{secrets.JIRA_TOKEN}}"  --data @/home/runner/work/CumulusCI_First/CumulusCI_First/output/output.xml 'https://devstack.vwgroup.com/jira/rest/raven/2.0/import/execution/robot?projectKey=GFMC&testExecKey=${JIRA_EXECUTION_ID}' -o /dev/null -w '%{http_code}\n' -s)
           echo ${STATUS}
 #          curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer ${{secrets.JIRA_TOKEN}}"  --data @/home/runner/work/CumulusCI_First/CumulusCI_First/output/output.xml https://devstack.vwgroup.com/jira/rest/raven/2.0/import/execution/robot?testExecKey=${JIRA_EXECUTION_ID}
