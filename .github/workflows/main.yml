@@ -80,7 +80,7 @@ jobs:
         if: always()
         run: |
           export HTTPS_PROXY=https://proxy.devstack.vwgroup.com:3128
-          python /home/runner/work/CumulusCI_First/CumulusCI_First/main.py
+          python /home/runner/work/CumulusCI_First/CumulusCI_First/robot/CumulusCI_First/main.py
           
 
 #      - name: Upload Test Results in JIRA
