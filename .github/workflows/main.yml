@@ -74,10 +74,16 @@ jobs:
           chmod 777 output
           cd output
           robot /home/runner/work/CumulusCI_First/CumulusCI_First/robot/CumulusCI_First/tests/
-      - name: Upload Test Results in JIRA
+#      - name: Upload Test Results in JIRA
+#        if: always()
+#        run: |
+#          curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer ${{secrets.JIRA_TOKEN}}"  --data @/home/runner/work/CumulusCI_First/CumulusCI_First/output/output.xml https://devstack.vwgroup.com/jira/rest/raven/2.0/import/execution/robot?testExecKey=${JIRA_EXECUTION_ID}
+
+      - name: Jira From Shell Script
         if: always()
         run: |
-          curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer ${{secrets.JIRA_TOKEN}}"  --data @/home/runner/work/CumulusCI_First/CumulusCI_First/output/output.xml https://devstack.vwgroup.com/jira/rest/raven/2.0/import/execution/robot?testExecKey=${JIRA_EXECUTION_ID}
+          chmod +x /home/runner/work/CumulusCI_First/CumulusCI_First/jira.sh
+          /home/runner/work/CumulusCI_First/CumulusCI_First/jira.sh
       - name: Final Report
         if: always()
         uses: actions/upload-artifact@v3
