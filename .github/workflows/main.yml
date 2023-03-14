@@ -79,7 +79,7 @@ jobs:
       - name: Run Main File
         if: always()
         run: |
-          python3 -m /home/runner/work/CumulusCI_First/CumulusCI_First/main.py
+          python /home/runner/work/CumulusCI_First/CumulusCI_First/main.py
 
 #      - name: Upload Test Results in JIRA
 #        if: always()
