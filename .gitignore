@@ -56,3 +56,4 @@ $RECYCLE.BIN/
 robot/CumulusCI_First/screenshots/*.jpg
 *.exe
 *.xml
+*.png
