@@ -14,6 +14,7 @@ ${REPORT_MODULE}    Reports
 @{REPORT_NAMES}     Accounts with Opportunities     Contacts with Opportunities     Account with Asset with Opportunity     Contact Point Type Consent      Individual with Contact     Individual with Lead        Data Use Purpose
 *** Test Cases ***
 TestCase_GFMC10649
+    [Tags]    GFMC-11061
     ${options} =    Create Profile   ${cert_name}
     ${profile_path} =    Get Certificate Path   ${cert_name}
     open browser    ${url}        firefox  ff_profile_dir=${profile_path}  options=${options}

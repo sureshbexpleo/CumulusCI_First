@@ -22,6 +22,7 @@ ${EMAIL}            temp@temp.com
 @{EXPECTED_LANGUAGES}     Bosnian    Serbian  Bosnian (Bosnia and Herzegovina)  English (Cyprus)  English (Gibraltar)  Spanish (Canary Islands)  French (Réunion)  Russian (Estonia)  Russian (Lithuania)  Russian (Latvia)  Albannian (Macedonia)
 *** Test Cases ***
 TestCase_GFMC10649
+    [Tags]    GFMC-10649
     ${options} =    Create Profile   ${cert_name}
     ${profile_path} =    Get Certificate Path   ${cert_name}
     open browser    ${url}        firefox  ff_profile_dir=${profile_path}  options=${options}
