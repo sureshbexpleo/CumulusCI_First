@@ -77,13 +77,20 @@ jobs:
           cd output
           robot /home/runner/work/CumulusCI_First/CumulusCI_First/robot/CumulusCI_First/tests/
 
-      - name: Submit results to Xray
+
+      - name: Jira From Shell Script
         if: always()
-        env:
-          JIRA_SERVER_URL: ${{ secrets.JIRA_SERVER_URL }}
-          JIRA_USERNAME: ${{ secrets.JIRA_USER_NAME }}
-          JIRA_PASSWORD: ${{ secrets.JIRA_PASSWORD }}
-        run: 'curl -H "Content-Type: multipart/form-data" -u $JIRA_USERNAME:$JIRA_PASSWORD -F "file=@/home/runner/work/CumulusCI_First/CumulusCI_First/output/output.xml" "$JIRA_SERVER_URL/rest/raven/2.0/import/execution/robot?projectKey=${PROJECT_KEY}&testExecKey=${JIRA_EXECUTION_ID}"'
+        run: |
+          chmod +x /home/runner/work/CumulusCI_First/CumulusCI_First/jira.sh
+          /home/runner/work/CumulusCI_First/CumulusCI_First/jira.sh
+
+#      - name: Submit results to Xray
+#        if: always()
+#        env:
+#          JIRA_SERVER_URL: ${{ secrets.JIRA_SERVER_URL }}
+#          JIRA_USERNAME: ${{ secrets.JIRA_USER_NAME }}
+#          JIRA_PASSWORD: ${{ secrets.JIRA_PASSWORD }}
+#        run: 'curl -H "Content-Type: multipart/form-data" -u $JIRA_USERNAME:$JIRA_PASSWORD -F "file=@/home/runner/work/CumulusCI_First/CumulusCI_First/output/output.xml" "$JIRA_SERVER_URL/rest/raven/2.0/import/execution/robot?projectKey=${PROJECT_KEY}&testExecKey=${JIRA_EXECUTION_ID}"'
 
           
 
