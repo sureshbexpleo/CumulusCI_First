@@ -11,7 +11,7 @@ permissions:
   contents: write
 env:
   JIRA_EXECUTION_ID: GFMC-24435
-  HTTPS_PROXY: https://proxy.devstack.vwgroup.com:3128
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -79,7 +79,9 @@ jobs:
       - name: Run Main File
         if: always()
         run: |
+          export HTTPS_PROXY=https://proxy.devstack.vwgroup.com:3128
           python /home/runner/work/CumulusCI_First/CumulusCI_First/main.py
+          
 
 #      - name: Upload Test Results in JIRA
 #        if: always()
